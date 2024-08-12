@@ -1,1 +1,5 @@
-<p>home works!</p>
+@for (user of USERS; track user.id) {
+    <div>
+        <p>{{user.first_name}}</p>
+    </div>
+}
