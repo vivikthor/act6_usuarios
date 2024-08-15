@@ -1,5 +1,11 @@
-@for (user of USERS; track user.id) {
-    <div>
-        <p>{{user.first_name}}</p>
-    </div>
-}
+<app-navbar></app-navbar>
+<section>
+  @for (user of USERS; track user.id) {
+    <app-user-card [myUser] = user></app-user-card>
+  }@empty {
+    <h1>No hay usuarios</h1>
+  }
+
+  <!-- @for (page of PAGES; track $index) {
+    <button (click)="movePage($index+1)">{{$index+1}}</button> -->
+</section>

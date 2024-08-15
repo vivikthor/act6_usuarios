@@ -7,14 +7,17 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class UsersServiceService {
-  private baseURL: string = 'https://peticiones.online/api/users';
+  private baseURL: string = 'https://peticiones.online/api/users/';
   private http = inject(HttpClient);
 
 
+  getAll(page: number = 1): Promise<IUser[]> {
+    return firstValueFrom(
+      this.http.get<IUser[]>(`${this.baseURL}?page=${page}`)
+    );
+  }
 
-getAll(page : number = 1): Promise<IUser[]>{
-return firstValueFrom(
-  this.http.get<IUser[]>(`${this.baseURL}?page=${page}`)
-);
-}
+  delete(_id: string): Promise<IUser> {
+      return firstValueFrom(this.http.delete<IUser>(`${this.baseURL}${_id}`))
+  }
 }
