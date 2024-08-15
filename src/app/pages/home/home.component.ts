@@ -36,7 +36,15 @@ export class HomeComponent {
   }
 
   async movePage(page: number) {
-    const res = await this.userService.getAll(page);
-    this.USERS = res;
+    const data : any = await this.userService.getAll(page);
+    this.USERS = data.results;
   }
+  // movePage(page: number) {
+  //   this.userService.getAll(page).then((data :any) => {
+  //     this.USERS = data.results;
+  //   }).catch((error)=>{
+  //     console.log(error)
+  //   })
+  // }
+
 }

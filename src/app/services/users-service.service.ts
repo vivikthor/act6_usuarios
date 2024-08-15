@@ -10,7 +10,6 @@ export class UsersServiceService {
   private baseURL: string = 'https://peticiones.online/api/users/';
   private http = inject(HttpClient);
 
-
   getAll(page: number = 1): Promise<IUser[]> {
     return firstValueFrom(
       this.http.get<IUser[]>(`${this.baseURL}?page=${page}`)
@@ -18,6 +17,6 @@ export class UsersServiceService {
   }
 
   delete(_id: string): Promise<IUser> {
-      return firstValueFrom(this.http.delete<IUser>(`${this.baseURL}${_id}`))
+    return firstValueFrom(this.http.delete<IUser>(`${this.baseURL}${_id}`));
   }
 }

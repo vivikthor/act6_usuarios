@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
 <section>
-  @for (user of USERS; track user.id) {
-    <app-user-card [myUser] = user></app-user-card>
+  @for (user of USERS; track user._id) {
+  <app-user-card [myUser]="user"></app-user-card>
   }@empty {
-    <h1>No hay usuarios</h1>
+  <h1>No hay usuarios</h1>
+  } @for (page of PAGES; track $index) {
+  <button (click)="movePage($index + 1)">{{ $index + 1 }}</button>
   }
-
-  <!-- @for (page of PAGES; track $index) {
-    <button (click)="movePage($index+1)">{{$index+1}}</button> -->
+  <!-- <button (click)="movePage(1)">1</button>
+    <button (click)="movePage(2)">2</button> -->
 </section>
