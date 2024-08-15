@@ -13,16 +13,6 @@ import { UsersServiceService } from '../../services/users-service.service';
 export class UserCardComponent {
   @Input() myUser?: IUser;
   userService = inject(UsersServiceService)
-//   USERS : IUser[] = [];
-
-// async ngOnInit(){
-//   try{
-//     const res = await this.userService.getAll()
-//     this.USERS = res
-//   }catch(error){
-//     console.log(error)
-//   }
-// }
 
 
   async delete(_id: string | undefined) {
@@ -30,8 +20,6 @@ export class UserCardComponent {
       try {
         const resDelete: any = await this.userService.delete(_id);
         console.log(resDelete);
-        // const res: IUser[] = await this.userService.getAll();
-        // this.USERS = res
 
       } catch (error) {
         console.log(error);

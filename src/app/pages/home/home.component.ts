@@ -5,6 +5,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RouterLink } from '@angular/router';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
+import { IApi } from '../../interfaces/iapi';
 
 @Component({
   selector: 'app-home',
@@ -36,15 +37,7 @@ export class HomeComponent {
   }
 
   async movePage(page: number) {
-    const data : any = await this.userService.getAll(page);
+    const data: any = await this.userService.getAll(page);
     this.USERS = data.results;
   }
-  // movePage(page: number) {
-  //   this.userService.getAll(page).then((data :any) => {
-  //     this.USERS = data.results;
-  //   }).catch((error)=>{
-  //     console.log(error)
-  //   })
-  // }
-
 }
