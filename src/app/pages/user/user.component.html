@@ -9,6 +9,6 @@
 
     <button [routerLink]="['/update-user', USER?._id]">Actualizar</button>
     <button [routerLink]="['/home']">Volver al listado</button>
-    <button (click)="delete(USER?._id)">Eliminar</button>
+    <app-delete-btn [UserTarget]="USER"></app-delete-btn>
   </div>
 </main>

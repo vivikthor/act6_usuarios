@@ -1,9 +1,10 @@
 <div>
-    <img [src]="myUser?.image">
-    <p>{{ myUser?.first_name }} {{myUser?.last_name}}</p>
+    <img [src]="myUser.image">
+    <p>{{ myUser.first_name }} {{myUser.last_name}}</p>
     <ul>
-        <li><button [routerLink]="['/user/'+myUser?._id]">Ver detalle</button></li>
-        <li><button [routerLink]="['/update-user/'+myUser?._id]">Actualizar</button></li>
-        <li><button (click)="delete(myUser?._id)">Borrar</button></li>
+        <li><button [routerLink]="['/user/'+myUser._id]">Ver detalle</button></li>
+        <li><button [routerLink]="['/update-user/'+myUser._id]">Actualizar</button></li>
+        <!-- <li><button (click)="delete(myUser?._id)">Borrar</button></li> -->
+         <li><app-delete-btn [UserTarget]="myUser"></app-delete-btn></li>
     </ul>
   </div>
