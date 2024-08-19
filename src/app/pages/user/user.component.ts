@@ -13,7 +13,7 @@ import { IUser } from '../../interfaces/iuser.interface';
 export class UserComponent {
   userService = inject(UsersServiceService);
   activatedRoute = inject(ActivatedRoute);
-  USER!: IUser;
+  USER!: IUser | null;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(async (params: any) => {
