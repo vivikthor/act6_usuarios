@@ -1,13 +1,13 @@
 <main>
   <div>
-    <img [src]="USER?.image" [alt]="USER?.username" />
+    <img [src]="USER.image" [alt]="USER.username" />
   </div>
   <div>
-    <h1>{{ USER?.first_name }} {{ USER?.last_name }}</h1>
-    <p><span>Nombre de usuario:</span> {{ USER?.username }}</p>
-    <p><span>Email:</span> {{ USER?.email }}</p>
+    <h1>{{ USER.first_name }} {{ USER.last_name }}</h1>
+    <p><span>Nombre de usuario:</span> {{ USER.username }}</p>
+    <p><span>Email:</span> {{ USER.email }}</p>
 
-    <button [routerLink]="['/update-user', USER?._id]">Actualizar</button>
+    <button [routerLink]="['/update-user', USER._id]">Actualizar</button>
     <button [routerLink]="['/home']">Volver al listado</button>
     <app-delete-btn [UserTarget]="USER"></app-delete-btn>
   </div>

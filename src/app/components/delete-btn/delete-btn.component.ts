@@ -18,7 +18,6 @@ export class DeleteBtnComponent {
   async delete(_id: string | undefined) {
     if (_id) {
       try {
-        console.log("try")
         const resDelete: IUser = await this.userService.delete(_id);
 
         const swalWithBootstrapButtons = Swal.mixin({
@@ -32,7 +31,6 @@ export class DeleteBtnComponent {
           .fire({
             title: `¿Quieres eliminar a ${this.UserTarget?.first_name}?`,
             text: 'Si borras al usuario no habrá vuelta atrás',
-            // icon: 'question',
             imageUrl: this.UserTarget?.image,
             imageWidth: 200,
             imageHeight: 200,
@@ -55,6 +53,6 @@ export class DeleteBtnComponent {
       } catch (error) {
         console.log(error);
       }
-    }
+    } 
   }
 }

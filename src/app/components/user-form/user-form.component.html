@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<h1>{{tipo}} usuario</h1>
+
+<form [formGroup]="modelForm" (ngSubmit)="getForm()" novalidate>
+  <label for="first_name">Nombre</label>
+  <input
+    type="text"
+    id="first_name"
+    placeholder="Nombre"
+    formControlName="first_name"
+  />
+  @if(checkValidation('first_name', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  }
+  <label for="last_name">Apellidos</label>
+  <input
+    type="text"
+    id="last_name"
+    placeholder="Apellidos"
+    formControlName="last_name"
+  />
+  @if(checkValidation('last_name', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  }
+  <label for="username">Nombre de usuario</label>
+  <input
+    type="text"
+    id="username"
+    placeholder="Nombre de usuario"
+    formControlName="username"
+  />
+  @if(checkValidation('username', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  }  @if(checkValidation('username', 'minlength')){
+  <p class="error">El nombre de usuario debe tener al menos 3 caracteres</p>
+  }
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Email" formControlName="email" />
+
+  @if(checkValidation('email', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  } @if(checkValidation('email', 'pattern')){
+  <p class="error">El email no es correcto</p>
+  }
+  <label for="password">Contraseña</label>
+  <input
+    type="password"
+    id="password"
+    placeholder="Contraseña"
+    formControlName="password"
+  />
+  @if(checkValidation('password', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  }
+  @if(checkValidation('password', 'minlength')){
+  <p class="error">La contraseña debe tener al menos 6 caracteres</p>
+  }
+  <label for="rep_password">Repite Contraseña</label>
+  <input
+    type="password"
+    id="rep_password"
+    placeholder="Repite la contraseña"
+    formControlName="rep_password"
+  />
+  @if(checkValidation('rep_password', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  } @if(modelForm.hasError('checkpassword')){
+  <p class="error">La contraseña no coincide</p>
+  }
+  <label for="image">Imagen de usuario</label>
+  <input
+    type="text"
+    id="image"
+    placeholder="https://..."
+    formControlName="image"
+  />
+  @if(checkValidation('image', 'required')){
+  <p class="error">El campo es obligatorio</p>
+  }
+
+  <input type="submit" [value]="submitBtn" [disabled]="!modelForm.valid" />
+</form>
